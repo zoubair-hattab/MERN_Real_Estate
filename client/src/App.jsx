@@ -6,6 +6,10 @@ import AboutPage from './pages/AboutPage';
 import ProfilePage from './pages/ProfilePage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import PrivateRouter from './components/PrivateRouter';
 function App() {
   return (
     <BrowserRouter>
@@ -16,10 +20,24 @@ function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="sign-in" element={<SignInPage />} />
           <Route path="sign-up" element={<SignUpPage />} />
-          <Route path="profile" element={<ProfilePage />} />
+          <Route element={<PrivateRouter />}>
+            <Route path="profile" element={<ProfilePage />} />
+          </Route>
         </Route>
       </Routes>
       <Footer />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </BrowserRouter>
   );
 }
