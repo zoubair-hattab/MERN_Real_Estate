@@ -1,6 +1,6 @@
-import monggose from 'mongoose';
+import mongoose from 'mongoose';
 
-const userSchema = new monggose.Schema(
+const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
@@ -15,19 +15,15 @@ const userSchema = new monggose.Schema(
     password: {
       type: String,
       required: true,
-      unique: true,
     },
-    userPhoto: {
+    avatar:{
       type: String,
-      default:
-        'https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=',
-    },
-    isAdmin: {
-      type: Boolean,
-      default: false,
+      default: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
     },
   },
   { timestamps: true }
 );
-const User = monggose.model('User', userSchema);
+
+const User = mongoose.model('User', userSchema);
+
 export default User;

@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.section {
-  padding-block: 100px;
-}
-
-body {
-  background-color: rgb(241, 245, 241);
-}
-
-.height {
-  height: calc(100vh - 150px);
+body{
+    background-color: rgb(241, 245, 241);
 }
